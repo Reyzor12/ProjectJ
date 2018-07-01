@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ProjectS</string>
+    <string name="climate">климат</string>
+    <string name="cost">стоимость</string>
+    <string name="beach">пляж</string>
+    <string name="find">найти</string>
+    <string name="title_activity_map">Map</string>
+</resources>
