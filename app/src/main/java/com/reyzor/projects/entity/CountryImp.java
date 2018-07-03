@@ -58,6 +58,18 @@ public class CountryImp implements Country
     }
 
     @Override
+    public Integer getImage()
+    {
+        return image;
+    }
+
+    @Override
+    public void setImage(Integer image)
+    {
+        this.image = image;
+    }
+
+    @Override
     public Long getId()
     {
         return id;

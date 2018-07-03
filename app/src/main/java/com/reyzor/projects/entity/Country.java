@@ -13,4 +13,6 @@ public interface Country extends BaseEntity
     void setCountryDescription(CountryDescription description);
     CountryFilter getCountryFilter();
     void setCountryFilter(CountryFilter filter);
+    Integer getImage();
+    void setImage(Integer image);
 }

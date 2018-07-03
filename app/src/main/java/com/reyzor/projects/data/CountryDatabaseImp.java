@@ -36,6 +36,7 @@ public class CountryDatabaseImp implements CountryDatabase
 
     private void initCountries()
     {
+        countries = new ArrayList<>();
         List<Integer> austImage = new ArrayList(Arrays.asList(R.drawable.aus1, R.drawable.aus2));
         Country australia = new CountryImp(
                 1l,
