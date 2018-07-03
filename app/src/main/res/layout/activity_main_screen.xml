@@ -5,8 +5,74 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainScreen">
+    tools:context=".MainScreen"
+    android:background="@mipmap/backg">
 
+    <LinearLayout
+        android:id="@+id/titleSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="24sp"
+            android:text="Параметры поиска"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:typeface="monospace" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <CheckBox
+            android:id="@+id/beach"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="18sp"
+            android:text="@string/beach"
+            android:textAlignment="textStart"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="18sp"
+            android:typeface="monospace" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <CheckBox
+            android:id="@+id/money"
+            android:text="@string/money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="textStart"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="18sp"
+            android:typeface="monospace"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <CheckBox
+            android:id="@+id/english"
+            android:text="@string/english"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="textStart"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="18sp"
+            android:typeface="monospace"/>
+
+    </LinearLayout>
     <LinearLayout
         android:id="@+id/climate_block"
         android:layout_width="match_parent"
@@ -15,57 +81,60 @@
 
         <android.support.v7.widget.AppCompatSpinner
             android:id="@+id/climate"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="5" />
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            />
-
-        <TextView
             android:text="@string/climate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
+            android:textAlignment="textStart"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="18sp"
+            android:typeface="monospace" />
 
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/cost_block"
+        android:id="@+id/adventure_block"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-
-        <EditText
-            android:id="@+id/cost"
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/adventure"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="numberDecimal" />
+            android:layout_weight="5" />
 
         <TextView
-            android:text="@string/cost"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <CheckBox
-            android:id="@+id/beach"
-            android:text="@string/beach"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/adventure"
+            android:textAlignment="textStart"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="18sp"
+            android:typeface="monospace" />
 
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
 
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
         <Button
             android:id="@+id/find"
-            android:text="@string/find"
-            android:layout_gravity="right"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@mipmap/buttonfind"
+            android:layout_marginRight="50dp"
+            android:onClick="onClick" />
 
     </LinearLayout>
 

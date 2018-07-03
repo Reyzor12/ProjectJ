@@ -5,4 +5,7 @@
     <string name="beach">пляж</string>
     <string name="find">найти</string>
     <string name="title_activity_map">Map</string>
+    <string name="money">бюджетно</string>
+    <string name="english">разговаривают на английском</string>
+    <string name="adventure">тип путешествия</string>
 </resources>

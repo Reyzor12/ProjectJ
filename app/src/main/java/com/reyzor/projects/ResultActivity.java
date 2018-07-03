@@ -1,10 +1,9 @@
 package com.reyzor.projects;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Layout;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -13,26 +12,34 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import com.reyzor.projects.data.DataBase;
-import com.reyzor.projects.entity.Countries;
+import com.reyzor.projects.entity.AdventureType;
+import com.reyzor.projects.entity.Climate;
 
 public class ResultActivity extends AppCompatActivity
 {
 
-    private TableLayout view;
+    /*private TableLayout view;
     private Countries[] countries;
     private ArrayAdapter<Countries> adapter;
     private Integer columns = 1;
     private Integer rows = 1;
 
-    private String TAG = "ResultActivity";
+    private String TAG = "ResultActivity";*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
-        view = (TableLayout) findViewById(R.id.results);
+        Intent intent = getIntent();
+        Boolean beach = intent.getExtras().getBoolean("beach");
+        Boolean money = intent.getExtras().getBoolean("money");
+        Boolean english = intent.getExtras().getBoolean("english");
+        Climate climate = (Climate) intent.getExtras().getSerializable("climate");
+        AdventureType adventure = (AdventureType)intent.getExtras().getSerializable("adventure");
+        TextView text = findViewById(R.id.testText);
+        text.setText(beach + " " + money+ " " + english + " " + climate + " " + adventure);
+        /*view = (TableLayout) findViewById(R.id.results);
         countries = DataBase.getCountries();
         for (int i = 0; i < rows; i++)
         {
@@ -62,7 +69,7 @@ public class ResultActivity extends AppCompatActivity
             }
             row.addView(layout);
             view.addView(row, i);
-        }
+        }*/
 
     }
 }
