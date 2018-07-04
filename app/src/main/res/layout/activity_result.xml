@@ -8,9 +8,16 @@
     android:orientation="vertical"
     >
 
-    <TableLayout
-        android:id="@+id/resultLayout"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/common_google_signin_btn_text_dark_focused"/>
+        android:background="@color/common_google_signin_btn_text_dark_focused">
+
+        <TableLayout
+            android:id="@+id/resultLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/common_google_signin_btn_text_dark_focused" />
+    </ScrollView>
+
 </LinearLayout>

@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
+import android.support.v4.widget.TextViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
@@ -73,6 +74,7 @@ public class ResultActivity extends AppCompatActivity
             {
                 TableRow row = new TableRow(this);
                 row.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT));
+                row.setPadding(20,10,20,10);
 
                 LinearLayout layout = new LinearLayout(this);
                 layout.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT));
@@ -80,15 +82,20 @@ public class ResultActivity extends AppCompatActivity
                 ImageView image = new ImageView(this);
                 image.setImageResource(country.getImage());
                 image.setScaleType(ImageView.ScaleType.FIT_XY);
+                image.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 0f));
+                image.getLayoutParams().height = 400;
+                image.getLayoutParams().width = 400;
                 layout.addView(image);
 
                 TextView content = new TextView(this);
-                //content.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-                //content.setBackground(content1.getDrawable());
-                //content.setBackgroundResource(country.getImage());
-                content.setGravity(Gravity.CENTER);
-                content.setText(country.getName());
+                StringBuilder sb = new StringBuilder(country.getName()+"\n");
+                sb.append("Description:\n");
+                sb.append(country.getCountryDescription().getTextDescription());
+                content.setText(sb.toString());
                 content.setTextColor(Color.YELLOW);
+                content.setPadding(40, 0 , 0, 0);
+                content.setLayoutParams(new LinearLayout.LayoutParams(600, LinearLayout.LayoutParams.WRAP_CONTENT, 1f));
+                //content.getLayoutParams().width = 100;
                 layout.addView(content);
 
                 row.addView(layout);
