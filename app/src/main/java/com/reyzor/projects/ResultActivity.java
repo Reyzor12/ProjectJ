@@ -72,14 +72,26 @@ public class ResultActivity extends AppCompatActivity
             for (Country country : countries)
             {
                 TableRow row = new TableRow(this);
-                row.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
+                row.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT));
+
+                LinearLayout layout = new LinearLayout(this);
+                layout.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT));
+
+                ImageView image = new ImageView(this);
+                image.setImageResource(country.getImage());
+                image.setScaleType(ImageView.ScaleType.FIT_XY);
+                layout.addView(image);
 
                 TextView content = new TextView(this);
-                content.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
-                content.setBackgroundResource(country.getImage());
+                //content.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                //content.setBackground(content1.getDrawable());
+                //content.setBackgroundResource(country.getImage());
+                content.setGravity(Gravity.CENTER);
                 content.setText(country.getName());
+                content.setTextColor(Color.YELLOW);
+                layout.addView(content);
 
-                row.addView(content);
+                row.addView(layout);
                 resultLayout.addView(row);
             }
             /*ArrayAdapter<Country> adapter = new ArrayAdapter<Country>(this, R.layout.item_result, R.id.country, countries.toArray(new Country[countries.size()]));
