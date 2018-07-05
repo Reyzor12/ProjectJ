@@ -1,5 +1,6 @@
 package com.reyzor.projects;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
@@ -9,15 +10,22 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.reyzor.projects.entity.CountryCoordinate;
 
 public class ActivityMap extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private String nameOfCountry;
+    private CountryCoordinate coordinate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
+        Intent intent = getIntent();
+        nameOfCountry = intent.getStringExtra("countryName");
+        coordinate = (CountryCoordinate) intent.getSerializableExtra("coordinate");
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -39,8 +47,8 @@ public class ActivityMap extends FragmentActivity implements OnMapReadyCallback 
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng coord = new LatLng(coordinate.getLatitude(), coordinate.getLongitude());
+        mMap.addMarker(new MarkerOptions().position(coord).title(nameOfCountry));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(coord));
     }
 }

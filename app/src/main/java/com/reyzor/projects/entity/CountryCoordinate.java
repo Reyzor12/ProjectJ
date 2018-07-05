@@ -1,5 +1,7 @@
 package com.reyzor.projects.entity;
 
+import java.io.Serializable;
+
 /**
  * Interface describe coordinate of specific country.
  * Coordinates define two {@link Float} values:
@@ -7,7 +9,7 @@ package com.reyzor.projects.entity;
  * float longitude
  * */
 
-public interface CountryCoordinate extends BaseEntity
+public interface CountryCoordinate extends BaseEntity,Serializable
 {
     Float getLatitude();
     void setLatitude(Float latitude);

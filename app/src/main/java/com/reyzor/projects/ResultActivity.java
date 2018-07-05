@@ -75,9 +75,21 @@ public class ResultActivity extends AppCompatActivity
                 TableRow row = new TableRow(this);
                 row.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT));
                 row.setPadding(20,10,20,10);
+                row.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), ActivityMap.class);
+                        intent.putExtra("countryName", country.getName());
+                        intent.putExtra("coordinate", country.getCountryDescription().getCoordinate());
+                        startActivity(intent);
+                    }
+                });
 
                 LinearLayout layout = new LinearLayout(this);
                 layout.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT));
+                /*layout.setBackgroundColor(Color.GRAY);
+                layout.getBackground().setAlpha(80);*/
+                layout.setBackgroundResource(R.layout.item);
 
                 ImageView image = new ImageView(this);
                 image.setImageResource(country.getImage());
@@ -105,42 +117,6 @@ public class ResultActivity extends AppCompatActivity
             resultLayout.setAdapter(adapter);*/
 
         }
-        /*resultLayout.setNumColumns(GridView.AUTO_FIT);
-        resultLayout.setVerticalSpacing(5);
-        resultLayout.setHorizontalSpacing(5);
-        resultLayout.setStretchMode(GridView.STRETCH_SPACING);*/
-        //text.setText(beach + " " + money+ " " + english + " " + climate + " " + adventure);
-        /*view = (TableLayout) findViewById(R.id.results);
-        countries = DataBase.getCountries();
-        for (int i = 0; i < rows; i++)
-        {
-            LinearLayout layout = new LinearLayout(this);
-            layout.setOrientation(LinearLayout.HORIZONTAL);
-            layout.setBackgroundColor(Color.BLUE);
-
-            TableRow row = new TableRow(this);
-            //row.setBackgroundColor(Color.GREEN);
-            row.setLayoutParams(new TableRow.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
-
-            for (int j = 0; j < columns; j++)
-            {
-                ImageView imageView = new ImageView(this);
-                imageView.setImageResource(countries[j].getImageId());
-                TextView textView = new TextView(this);
-                //textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
-                textView.setText(countries[j].getName());
-                textView.setTextColor(Color.GREEN);
-                textView.setTextSize(20f);
-                textView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-                textView.setBackgroundResource(countries[j].getImageId());
-                //textView.setBackgroundColor(Color.GREEN);
-                //layout.addView(imageView);
-                layout.addView(textView);
-                //layout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            }
-            row.addView(layout);
-            view.addView(row, i);
-        }*/
 
     }
 }
